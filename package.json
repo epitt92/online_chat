@@ -4,8 +4,6 @@
   "description": "A \"Discord clone\" with Socket.io, Node.js & MongoDB...",
   "main": "app.js",
   "scripts": {
-    "build": "npm install",
-    "express": "netlify-lambda build express",
     "start": "nodemon app.js"
   },
   "repository": {
@@ -46,7 +44,6 @@
     "eslint-plugin-import": "^2.16.0",
     "install": "^0.12.2",
     "nodemon": "^1.18.9",
-    "netlify-lambda": "^1.6.3",
     "npm": "^6.7.0"
   }
 }

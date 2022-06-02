@@ -24,7 +24,7 @@ const io             = socketIO(server);
 require("./io/index")(io);
 
 // Configure app and mongoose
-app.use(express.static(__dirname + "/express/public"));
+app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
@@ -90,7 +90,9 @@ app.use((req, res, next)=>{
     res.locals.error = req.flash("error");
     next();
 });
-app.use('/.netlify/functions/server/', indexRoute);  // path must route to lambda
-app.use('/.netlify/functions/server/users', userRoute);  // path must route to lambda
-app.use('/.netlify/functions/server/channel', channelRoute);  // path must route to lambda
-app.use('/.netlify/functions/server/', ajaxRoute);  // path must route to lambda
+
+// Routes
+app.use("/", indexRoute);
+app.use("/users", userRoute);
+app.use("/channel", channelRoute);
+app.use(ajaxRoute);
